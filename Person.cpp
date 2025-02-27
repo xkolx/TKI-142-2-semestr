@@ -3,7 +3,7 @@
 
 Person::Person(const string first, const string second, const string third)
 {
-    std::cout << "Âûâîä ÔÈÎ" << endl;
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¤Ð˜Ðž: " << endl;
     FirstName = second;
     LastName = first;
     patronymic = third;
@@ -12,7 +12,7 @@ Person::Person(const string first, const string second, const string third)
 
 Person::Person(const string first, const string second)
 {
-    std::cout << "Âûâîä ÔÈ" << endl;
+    std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð˜Ðž: " << endl;
     FirstName = second;
     LastName = first;
 }
@@ -20,14 +20,14 @@ Person::Person(const string first, const string second)
 
 void Person::show()
 {
-    std::cout <<endl<< "Ôàìèëèÿ: " << LastName << endl << 
-        "Èìÿ: " << FirstName << endl << endl;
+    std::cout <<endl<< "Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ: " << LastName << endl << 
+        "Ð˜Ð¼Ñ: " << FirstName << endl << endl;
 }
 
 
 void Person::ShowFormal()
 {
-    std::cout <<endl<< "Ôàìèëèÿ: " << LastName << endl <<
-    "Èìÿ: "<<  FirstName << endl <<
-    "Îò÷åñòâî: " << patronymic << endl << endl;
+    std::cout <<endl<< "Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ: " << LastName << endl <<
+    "Ð˜Ð¼Ñ: "<<  FirstName << endl <<
+    "ÐžÑ‚Ñ‡ÐµÑÑ‚Ð²Ð¾: " << patronymic << endl << endl;
 }
