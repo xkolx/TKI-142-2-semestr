@@ -5,7 +5,7 @@
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    Person person("Шлаев", "Константин", "Юрьевич");
+    Person person("РЁР»Р°РµРІ", "РљРѕРЅСЃС‚Р°РЅС‚РёРЅ", "Р®СЂСЊРµРІРёС‡");
     person.show();
     person.ShowFormal();
     return 0;
