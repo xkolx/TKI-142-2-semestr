@@ -9,8 +9,6 @@ class Person
         string FirstName;
         string patronymic;
     public:
-        Person();
-        Person(string LastName, string FirstName);
         Person(string LastName, string FirstName, string patronymic);
         void show();
         void ShowFormal();
