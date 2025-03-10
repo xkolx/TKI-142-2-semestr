@@ -10,13 +10,6 @@ Person::Person(const string first, const string second, const string third)
 }
 
 
-void Person::show()
-{
-    std::cout <<endl<< "Фамилия: " << LastName << endl << 
-        "Имя: " << FirstName << endl << endl;
-}
-
-
 void Person::ShowFormal()
 {
     std::cout <<endl<< "Фамилия: " << LastName << endl <<
