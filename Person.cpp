@@ -3,16 +3,25 @@
 
 Person::Person(const string first, const string second, const string third)
 {
-    std::cout << "Введите ФИО" << endl;
     FirstName = second;
     LastName = first;
     patronymic = third;
 }
 
 
+Person::Person() : LastName(""), FirstName(""), patronymic("") {}
+
+
+void Person::show()
+{
+    std::cout <<endl<< "Surname: " << LastName << endl << 
+        "Name: " << FirstName << endl << endl;
+}
+
+
 void Person::ShowFormal()
 {
-    std::cout <<endl<< "Фамилия: " << LastName << endl <<
-    "имя: "<<  FirstName << endl <<
-    "Отчество: " << patronymic << endl << endl;
+    std::cout <<endl<< "Surname: " << LastName << endl <<
+    "Name: "<<  FirstName << endl <<
+    "Patronymic: " << patronymic << endl << endl;
 }
