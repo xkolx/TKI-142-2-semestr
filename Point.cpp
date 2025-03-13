@@ -13,3 +13,11 @@ double Point::getY() const {
 double Point::getZ() const {
     return z;
 }
+
+bool Point::operator==(const Point& other) const {
+    return (*this == other);
+}
+
+bool Point::operator!=(const Point& other) const {
+    return !(*this == other);
+}

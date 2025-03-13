@@ -9,4 +9,7 @@ public:
     double getX() const;
     double getY() const;
     double getZ() const;
+
+    bool operator==(const Point& other) const;
+    bool operator!=(const Point& other) const;
 };

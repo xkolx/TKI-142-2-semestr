@@ -7,7 +7,7 @@ private:
     double radius;
     double height;
 public:
-    Cilindr(const Point& center = Point(), double radius = 1, double height = 1);
+    Cilindr(const Point& center = Point(), double radius, double height);
     double getRadius() const;
     double getHeight() const;
     Point getCenter() const;

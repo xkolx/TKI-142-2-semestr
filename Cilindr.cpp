@@ -17,12 +17,8 @@ Point Cilindr::getCenter() const {
 
 
 bool Cilindr::contains(const Point& point) const {
-    double dx = point.getX() - center.getX();
-    double dy = point.getY() - center.getY();
-    double dz = point.getZ() - center.getZ();
-    double distanceSquared = dx * dx + dy * dy;
-    bool withinRadius = distanceSquared <= radius * radius;
-    bool withinHeight = dz >= 0 && dz <= height;
+    bool withinRadius = sqrt(point.getX() * point.getX() + point.getY() * point.getY()) <= radius;
+    bool withinHeight = center.getZ() <= point.getZ() <= center.getZ() + 2 * height;
     return withinRadius && withinHeight;
 }
 
