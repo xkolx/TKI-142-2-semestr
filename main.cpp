@@ -1,25 +1,29 @@
 #include <iostream>
 #include <string>
 #include "Cilindr.h"
+#include <cstdlib>
 
-double getCoordinate(std::string message);
+
+double getPoint(std::string message);
+
+double getCilindr(std::string message);
 
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    auto x = getCoordinate("Input x: ");
-    auto y = getCoordinate("Input y: ");
-    auto z = getCoordinate("Input z: ");
+    auto x = getPoint("Input x: ");
+    auto y = getPoint("Input y: ");
+    auto z = getPoint("Input z: ");
     Point center(x, y, z);
 
-    auto radius = getCoordinate("Input radius: ");
-    auto height = getCoordinate("Input height: ");
+    auto radius = getCilindr("Input radius: ");
+    auto height = getCilindr("Input height: ");
     Cilindr cilindr(center, radius, height);
 
-    auto tx = getCoordinate("Input tx: ");
-    auto ty = getCoordinate("Input ty: ");
-    auto tz = getCoordinate("Input tz: ");
-    Point testPoint(tx, ty, tz);
+    auto tx = getPoint("Input tx: ");
+    auto ty = getPoint("Input ty: ");
+    auto tz = getPoint("Input tz: ");
+    Point testPoint = Point(tx, ty, tz);
     
     if (cilindr.contains(testPoint)) {
         std::cout << "Точка находится внутри цилиндра." << std::endl;
@@ -33,10 +37,28 @@ int main() {
     return 0;
 }
 
-double getCoordinate(std::string message)
+double getPoint(std::string message)
 {
   std::cout << message;
-  double coordinate = 0.0;
-  std::cin >> coordinate;
-  return coordinate;
+  double point = 0.0;
+  std::cin >> point;
+  if (!(point))
+  {
+    std::cerr << "Ошибка: введено не число!\n";
+    exit(1);
+    }
+  return point;
+}
+
+double getCilindr(std::string message)
+{
+  std::cout << message;
+  double cilindr = 0.0;
+  std::cin >> cilindr;
+  if (!(cilindr))
+  {
+    std::cerr << "Ошибка: введено не число!\n";
+    exit(1);
+    }
+  return cilindr;
 }
