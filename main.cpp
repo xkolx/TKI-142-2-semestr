@@ -14,11 +14,11 @@ int main() {
     Cilindr cilindr = getCilindr(center);
 
     Point testPoint = getPoint();
-    
+
     if (cilindr.contains(testPoint)) {
         std::cout << "Точка находится внутри цилиндра." << std::endl;
     } else {
-        std::cout << "Точка находится вне цилиндра." << std::endl;
+        std::cout << "Точка находится вне цилиндра.." << std::endl;
     }
 
     double volume = cilindr.calculateVolume();
@@ -45,11 +45,11 @@ Point getPoint() {
     return Point(x, y, z);
 }
 
-Cilindr getCilindr() {
-    auto x = input("Input x: ");
-    auto y = input("Input y: ");
-    auto z = input("Input z: ");
+Cilindr getCilindr(const Point& center) {
+
+
+
     auto radius = input("Input radius: ");
     auto height = input("Input height: ");
-    return Cilindr(x, y, z, radius, height);
+    return Cilindr(center, radius, height);
 }

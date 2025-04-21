@@ -1,7 +1,6 @@
 #pragma once
 
-class Point
-{
+class Point {
 private:
     double x, y, z;
 public:
