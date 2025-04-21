@@ -3,11 +3,16 @@
 
 class Cilindr {
 private:
-    Point center;
+    double x;
+    double y;
+    double z;
     double radius;
     double height;
 public:
-    Cilindr(const Point& center = Point(), double radius = 0.0, double height = 0.0);
+    Cilindr(double x, double y, double z, double radius = 0.0, double height = 0.0);
+    double getx() const;
+    double gety() const;
+    double getz() const;
     double getRadius() const;
     double getHeight() const;
     Point getCenter() const;

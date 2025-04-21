@@ -16,13 +16,13 @@ int main() {
     Point testPoint = getPoint();
     
     if (cilindr.contains(testPoint)) {
-        std::cout << "Òî÷êà íàõîäèòñÿ âíóòğè öèëèíäğà." << std::endl;
+        std::cout << "Ğ¢Ğ¾Ñ‡ĞºĞ° Ğ½Ğ°Ñ…Ğ¾Ğ´Ğ¸Ñ‚ÑÑ Ğ²Ğ½ÑƒÑ‚Ñ€Ğ¸ Ñ†Ğ¸Ğ»Ğ¸Ğ½Ğ´Ñ€Ğ°." << std::endl;
     } else {
-        std::cout << "Òî÷êà íàõîäèòñÿ âíå öèëèíäğà." << std::endl;
+        std::cout << "Ğ¢Ğ¾Ñ‡ĞºĞ° Ğ½Ğ°Ñ…Ğ¾Ğ´Ğ¸Ñ‚ÑÑ Ğ²Ğ½Ğµ Ñ†Ğ¸Ğ»Ğ¸Ğ½Ğ´Ñ€Ğ°." << std::endl;
     }
 
     double volume = cilindr.calculateVolume();
-    std::cout << "Îáúåì öèëèíäğà: " << volume << std::endl;
+    std::cout << "ĞĞ±ÑŠĞµĞ¼ Ñ†Ğ¸Ğ»Ğ¸Ğ½Ğ´Ñ€Ğ°: " << volume << std::endl;
 
     return 0;
 }
@@ -32,7 +32,7 @@ double input(std::string message) {
     double num = 0.0;
     std::cin >> num;
     if (std::cin.fail()) {
-        std::cerr << "Îøèáêà: ââåäåíî íå ÷èñëî!\n";
+        std::cerr << "ĞÑˆĞ¸Ğ±ĞºĞ°: Ğ²Ğ²ĞµĞ´ĞµĞ½Ğ¾ Ğ½Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾!\n";
         exit(1);
     }
     return num;
@@ -45,8 +45,11 @@ Point getPoint() {
     return Point(x, y, z);
 }
 
-Cilindr getCilindr(const Point& center) {
+Cilindr getCilindr() {
+    auto x = input("Input x: ");
+    auto y = input("Input y: ");
+    auto z = input("Input z: ");
     auto radius = input("Input radius: ");
     auto height = input("Input height: ");
-    return Cilindr(center, radius, height);
+    return Cilindr(x, y, z, radius, height);
 }
