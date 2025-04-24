@@ -1,7 +1,21 @@
 #include "Cilindr.h"
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
 
 Cilindr::Cilindr(const Point& center, double radius, double height)
-    : center(center), radius(radius), height(height) {}
+    : center(center) {
+    if (radius <= 0) {
+        std::cerr << "Ошибка: радиус цилиндра должен быть положительным (получено: " 
+                  << radius << ")\n";
+        std::exit(1);
+    }
+    if (height <= 0) {
+        std::cerr << "Ошибка: высота цилиндра должна быть положительной (получено: " 
+                  << height << ")\n";
+        std::exit(1);
+    }
+}
 
 double Cilindr::getRadius() const {
     return radius;
