@@ -5,13 +5,11 @@
 
 double input(std::string message);
 Point getPoint();
-Cilindr getCilindr(const Point& center);
+Cilindr getCilindr();
 
 int main() {
     setlocale(LC_ALL, "Russian");
-    Point center = getPoint();
-
-    Cilindr cilindr = getCilindr(center);
+    Cilindr cilindr = getCilindr();
 
     Point testPoint = getPoint();
 
@@ -45,10 +43,8 @@ Point getPoint() {
     return Point(x, y, z);
 }
 
-Cilindr getCilindr(const Point& center) {
-
-
-
+Cilindr getCilindr() {
+    auto center = getPoint();
     auto radius = input("Input radius: ");
     auto height = input("Input height: ");
     return Cilindr(center, radius, height);
