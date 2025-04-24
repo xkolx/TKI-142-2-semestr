@@ -3,27 +3,24 @@
 
 double input(std::string message);
 
+Angle getAngle() {
+  auto degrees = input("Градусы: ");
+  auto minutes = input("Минуты: ");
+  auto seconds = input("Секунды: ");
+  
+  return Angle(degrees, minutes, seconds);
+}
 
 int main() {
     setlocale(LC_ALL, "Russian");
     // Москва 55 45 0 , 37 37 0
-    // Питер 59 56 0 , 30 18 0
-    auto deg_lat1 = input("Введите градус первой длины:");
-    auto min_lat1 = input("Введите минруты первой длины:");
-    auto sec_lat1 = input("Введите секунды первой длины:");
-    Angle lat1(deg_lat1, min_lat1, sec_lat1);
-    auto deg_lon1 = input("Введите градус первой ширины:");
-    auto min_lon1 = input("Введите минрутыпервой ширины:");
-    auto sec_lon1 = input("Введите секундыпервой ширины:");
-    Angle lon1(deg_lon1, min_lon1, sec_lon1);
-    auto deg_lat2 = input("Введите градус второй длины:");
-    auto min_lat2 = input("Введите минруты второй длины:");
-    auto sec_lat2 = input("Введите секунды второй длины:");
-    Angle lat2(deg_lat2, min_lat2, sec_lat2);
-    auto deg_lon2 = input("Введите градус второй ширины:");
-    auto min_lon2 = input("Введите минруты второй ширины:");
-    auto sec_lon2 = input("Введите секунды второй ширины:");
-    Angle lon2(deg_lon2, min_lon2, sec_lon2);
+    // Питер 59 56 0 , 30 18 0 
+
+    Angle lat1 = getAngle();
+    Angle lon1 = getAngle();
+    Angle lat2 = getAngle();
+    Angle lon2 = getAngle();
+
 
     ArcLength arc(lat1, lon1, lat2, lon2);
     std::cout << "Длина дуги: " << arc.calculateLength() << " м" << std::endl;

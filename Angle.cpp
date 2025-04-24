@@ -10,27 +10,28 @@ Angle::Angle(int degrees, int minutes, double seconds): degrees(degrees), minute
 }
 
 Angle::Angle(double totalSeconds) {
-    degrees = static_cast<int>(totalSeconds / 3600);
+    degrees = totalSeconds / 3600;
     totalSeconds -= degrees * 3600;
-    minutes = static_cast<int>(totalSeconds / 60);
+    minutes = totalSeconds / 60;
     seconds = totalSeconds - minutes * 60;
     normalize();
 }
 
 void Angle::normalize() {
-    while (seconds >= 60) {
-        seconds -= 60;
-        minutes++;
-    }
-    while (minutes >= 60) {
-        minutes -= 60;
-        degrees++;
-    }
-    while (seconds < 0) {
+    int extraMinutes = seconds / 60;
+    minutes += extraMinutes;
+    seconds = fmod(seconds, 60.0);
+    
+    if (seconds < 0) {
         seconds += 60;
         minutes--;
     }
-    while (minutes < 0) {
+
+    int extraDegrees = minutes / 60;
+    degrees += extraDegrees;
+    minutes = minutes % 60;
+    
+    if (minutes < 0) {
         minutes += 60;
         degrees--;
     }
