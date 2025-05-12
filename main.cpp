@@ -4,30 +4,29 @@
 double input(std::string message);
 
 Angle getAngle() {
-  auto degrees = input("Градусы: ");
-  auto minutes = input("Минуты: ");
-  auto seconds = input("Секунды: ");
+  auto degrees = input("Р“СЂР°РґСѓСЃС‹: ");
+  auto minutes = input("РњРёРЅСѓС‚С‹: ");
+  auto seconds = input("РЎРµРєСѓРЅРґС‹: ");
   
   return Angle(degrees, minutes, seconds);
 }
 
 int main() {
-    setlocale(LC_ALL, "Russian");
-    // Москва 55 45 0 , 37 37 0
-    // Питер 59 56 0 , 30 18 0 
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+    
+    // РњРѕСЃРєРІР°: 55В°45вЂІ0вЂі, 37В°37вЂІ0вЂі
+    // РџРёС‚РµСЂ: 59В°56вЂІ0вЂі, 30В°18вЂІ0вЂі
 
     Angle lat1 = getAngle();
     Angle lon1 = getAngle();
     Angle lat2 = getAngle();
     Angle lon2 = getAngle();
 
-
     ArcLength arc(lat1, lon1, lat2, lon2);
-    std::cout << "Длина дуги: " << arc.calculateLength() << " м" << std::endl;
+    std::cout << "Р”Р»РёРЅР° РґСѓРіРё: " << arc.calculateLength() << " Рј" << std::endl;
 
     return 0;
 }
-
 
 double input(std::string message)
 {
