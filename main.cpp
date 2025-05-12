@@ -3,8 +3,23 @@
 #include "Cilindr.h"
 #include <cstdlib>
 
+/**
+ * @brief Ввод числа с обработкой ошибок
+ * @param message Сообщение для вывода перед вводом
+ * @return Введенное число
+ */
 double input(std::string message);
+
+/**
+ * @brief Создать точку по введенным координатам
+ * @return Созданная точка
+ */
 Point getPoint();
+
+/**
+ * @brief Создать цилиндр по введенным параметрам
+ * @return Созданный цилиндр
+ */
 Cilindr getCilindr();
 
 int main() {
