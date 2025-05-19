@@ -16,7 +16,7 @@ Stack::~Stack() {
     }
 }
 
-Stack::Stack(const Stack& other) : Stack() {
+Stack::Stack(const Stack& other) : topNode(nullptr), stackSize(0) {
     Stack temp;
     Node* current = other.topNode;
 
@@ -25,10 +25,15 @@ Stack::Stack(const Stack& other) : Stack() {
         current = current->next;
     }
 
-
     while (!temp.isEmpty()) {
         push(temp.pop());
     }
+}
+
+Stack::Stack(Stack&& other) noexcept
+    : topNode(other.topNode), stackSize(other.stackSize) {
+    other.topNode = nullptr;
+    other.stackSize = 0;
 }
 
 Stack& Stack::operator=(const Stack& other) {
