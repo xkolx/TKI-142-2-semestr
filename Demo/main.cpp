@@ -3,15 +3,15 @@
 #include "../Solver/ArcLength.h"
 
 /**
- * @brief Р—Р°РїСЂР°С€РёРІР°РµС‚ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІРІРѕРґ СѓРіР»Р°
- * @param prompt РџРѕРґСЃРєР°Р·РєР° РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
- * @return РћР±СЉРµРєС‚ Angle СЃ РІРІРµРґРµРЅРЅС‹РјРё Р·РЅР°С‡РµРЅРёСЏРјРё
+ * @brief Запрашивает у пользователя ввод угла
+ * @param prompt Подсказка для пользователя
+ * @return Объект Angle с введенными значениями
  */
 Angle getAngle(const std::string& prompt) {
     int degrees, minutes;
     double seconds;
 
-    std::cout << prompt << " (РіСЂР°РґСѓСЃС‹ РјРёРЅСѓС‚С‹ СЃРµРєСѓРЅРґС‹): ";
+    std::cout << prompt << " (градусы минуты секунды): ";
     std::cin >> degrees >> minutes >> seconds;
 
     return Angle(degrees, minutes, seconds);
@@ -19,21 +19,21 @@ Angle getAngle(const std::string& prompt) {
 
 int main() {
     try {
-        std::cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРµСЂРІРѕР№ С‚РѕС‡РєРё:\n";
-        Angle lat1 = getAngle("РЁРёСЂРѕС‚Р°");
-        Angle lon1 = getAngle("Р”РѕР»РіРѕС‚Р°");
+        std::cout << "Введите координаты первой точки:\n";
+        Angle lat1 = getAngle("Широта");
+        Angle lon1 = getAngle("Долгота");
 
-        std::cout << "\nР’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РІС‚РѕСЂРѕР№ С‚РѕС‡РєРё:\n";
-        Angle lat2 = getAngle("РЁРёСЂРѕС‚Р°");
-        Angle lon2 = getAngle("Р”РѕР»РіРѕС‚Р°");
+        std::cout << "\nВведите координаты второй точки:\n";
+        Angle lat2 = getAngle("Широта");
+        Angle lon2 = getAngle("Долгота");
 
         ArcLength arc(lat1, lon1, lat2, lon2);
         double distance = arc.calculateLength();
 
-        std::cout << "\nР”Р»РёРЅР° РґСѓРіРё: " << distance << " РјРµС‚СЂРѕРІ" << std::endl;
+        std::cout << "\nДлина дуги: " << distance << " метров" << std::endl;
     }
     catch (const std::exception& e) {
-        std::cerr << "РћС€РёР±РєР°: " << e.what() << std::endl;
+        std::cerr << "Ошибка: " << e.what() << std::endl;
         return 1;
     }
 
