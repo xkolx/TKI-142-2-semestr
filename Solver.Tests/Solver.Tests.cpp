@@ -54,7 +54,7 @@ namespace SolverTest
             Angle lon2(0, 0, 0);
             ArcLength arc(lat1, lon1, lat2, lon2);
             double distance = arc.calculateLength();
-            Assert::AreEqual(distance, 1853.25, 1);
+            Assert::AreEqual(distance, 1853.25, std::numeric_limits<double>::epsilon());
         }
 
         TEST_METHOD(CalculateLength_SamePoint_Zero)
@@ -74,7 +74,7 @@ namespace SolverTest
             Angle lon2(0, 0, 0);
             ArcLength arc(lat1, lon1, lat2, lon2);
             double distance = arc.calculateLength();
-            Assert::AreEqual(distance, 111195.0, 1);
+            Assert::AreEqual(distance, 111195.0, std::numeric_limits<double>::epsilon());
         }
     };
 }
