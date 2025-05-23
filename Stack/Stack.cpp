@@ -30,17 +30,29 @@ Stack::Stack(const Stack& other) : topNode(nullptr), stackSize(0) {
     }
 }
 
-Stack::Stack(Stack&& other) noexcept
-    : topNode(other.topNode), stackSize(other.stackSize) {
-    other.topNode = nullptr;
-    other.stackSize = 0;
+Stack::Stack(Stack&& other) noexcept {
+    topNode = nullptr;
+    stackSize = 0;
+    std::swap(topNode, other.topNode);
+    std::swap(stackSize, other.stackSize);
 }
 
 Stack& Stack::operator=(const Stack& other) {
     if (this != &other) {
-        Stack temp(other);
-        std::swap(topNode, temp.topNode);
-        std::swap(stackSize, temp.stackSize);
+        while (!isEmpty()) {
+            pop();
+        }
+
+        Stack temp;
+        Node* current = other.topNode;
+        while (current != nullptr) {
+            temp.push(current->data);
+            current = current->next;
+        }
+
+        while (!temp.isEmpty()) {
+            push(temp.pop());
+        }
     }
     return *this;
 }
