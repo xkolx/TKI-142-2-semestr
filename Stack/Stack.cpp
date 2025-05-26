@@ -57,6 +57,20 @@ Stack& Stack::operator=(const Stack& other) {
     return *this;
 }
 
+Stack& Stack::operator=(Stack&& other) noexcept {
+    if (this != &other) {
+        while (!isEmpty()) {
+            pop();
+        }
+        topNode = other.topNode;
+        stackSize = other.stackSize;
+        other.topNode = nullptr;
+        other.stackSize = 0;
+    }
+    return *this;
+}
+
+
 void Stack::push(int value) {
     Node* newNode = new Node{ value, topNode };
     topNode = newNode;
