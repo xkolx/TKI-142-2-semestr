@@ -24,6 +24,9 @@ public:
 
     Stack& operator=(const Stack& other);
 
+    Stack& operator=(Stack&& other) noexcept;
+
+
     void push(int value);
     int pop();
     int peek() const;
